@@ -1,5 +1,5 @@
 name: learn-github-actions
-  on:
+on:
   schedule:
     - cron:  '*/1 * * * *' #1分に1回実行
 
