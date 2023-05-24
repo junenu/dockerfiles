@@ -1,7 +1,9 @@
 name: learn-github-actions
-on: [push]
+  on:
+  schedule:
+    - cron:  '*/1 * * * *' #1分に1回実行
+
 jobs:
-  check-bats-version:
+  test_schedule:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "this is pen"
