@@ -1,18 +1,20 @@
-FROM junenu/ubuntu:latest
+FROM junenu/ubuntu:22.04
 
-MAINTAINER Junenu <junenu41@gmail.com> (@junenu41)
+MAINTAINER "Jun Egawa <junenu41@gmail.com>"
 
 # Install necessary packages
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     bird2 \
-    bird-bgp \
     && rm -rf /var/lib/apt/lists/*
 
 # Create necessary directories
 RUN mkdir -p /run/bird
+RUN mkdir -p /etc/shell
 
 # Copy the BIRD configuration file into the container
-COPY bird.conf /etc/bird/bird.conf
+COPY bird.conf /etc/bird/
+COPY bird6.conf /etc/bird/
 
-# Start BIRD in no-daemon mode
-CMD ["bird", "-c", "/etc/bird/bird.conf", "-s", "/run/bird/bird.ctl"]
+# Copy the start script into the container
+COPY bird_start.sh /etc/shell/
+RUN chmod +x /etc/shell/bird_start.sh
