@@ -11,9 +11,10 @@ RUN apt update && apt install -y \
 RUN mkdir -p /run/bird
 RUN mkdir -p /etc/shell
 
+RUN cp /etc/bird/bird.conf /etc/bird/bird.conf.orig
+
 # Copy the BIRD configuration file into the container
 COPY bird.conf /etc/bird/
-COPY bird6.conf /etc/bird/
 
 # Copy the start script into the container
 COPY bird_start.sh /etc/shell/
