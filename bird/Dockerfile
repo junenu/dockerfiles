@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
 RUN mkdir -p /run/bird
 
 # Copy the BIRD configuration file into the container
-COPY bird.conf /etc/bird/bird.conf
+#COPY bird.conf /etc/bird/bird.conf
 
 # Start BIRD in no-daemon mode
-CMD ["bird", "-c", "/etc/bird/bird.conf", "-s", "/run/bird/bird.ctl"]
+#CMD ["bird", "-c", "/etc/bird/bird.conf", "-s", "/run/bird/bird.ctl"]
