@@ -1,8 +1,5 @@
 FROM ubuntu:22.04
 
-# Set maintainer
-MAINTAINER "junenu"
-
 ENV TZ=Asia/Tokyo
 
 # Set environment variables
