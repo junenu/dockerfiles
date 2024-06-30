@@ -1,0 +1,10 @@
+version: '3'
+services:
+  python3.12:
+    restart: always
+    build: .
+    container_name: 'python3.12'
+    working_dir: '/root/'
+    tty: true
+    volumes:
+      - ./junenu:/root/junenu
